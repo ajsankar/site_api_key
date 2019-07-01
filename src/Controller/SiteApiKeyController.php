@@ -20,7 +20,7 @@ class SiteApiKeyController{
         $site_api_key_saved = \Drupal::config('siteapikey.configuration')->get('siteapikey');
 
         // Make sure the supplied node is a page, the configuration key is set and matches the supplied key
-        if($node->getType() == 'page_1' && $site_api_key_saved != 'No API Key yet' && $site_api_key_saved == $site_api_key){
+        if($node->getType() == 'page' && $site_api_key_saved != 'No API Key yet' && $site_api_key_saved == $site_api_key){
 
             // Respond with the json representation of the node
             return new JsonResponse($node->toArray(), 200, ['Content-Type'=> 'application/json']);
